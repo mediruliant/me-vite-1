@@ -1,0 +1,83 @@
+.menu-open {
+  color: white;
+}
+.menu__item {
+  position: relative;
+  padding: 10px 6vw;
+}
+.menu__item-link {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.4s;
+  text-decoration: none;
+}
+.menu__item-link::before {
+  all: initial;
+  position: absolute;
+  bottom: 60%;
+  left: 0;
+  pointer-events: none;
+}
+.menu__item-link:hover {
+  transition-duration: 0.1s;
+  opacity: 0;
+}
+.menu__item-img {
+  z-index: 2;
+  pointer-events: none;
+  position: absolute;
+  max-height: 600px;
+  opacity: 0;
+  transform: scale(0);
+}
+.menu__item-link:hover + .menu__item-img {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.4s;
+}
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  opacity: 0;
+  transition: all 0.1s;
+  transform: translateX(60px);
+}
+.menu__item-link:hover ~ .marquee .marquee__inner {
+  opacity: 1;
+  transform: translateX(0px);
+  transition-duration: 0.4s;
+}
+.menu__item-link,
+.marquee span {
+  white-space: nowrap;
+  padding: 0 1vw;
+}
+.marquee span {
+  font-style: italic;
+}
+
+.nav-container {
+  left: -110%;
+}
+.nav-active {
+  left: 0; 
+  /* Benci banget gua di sini ada gap yang gak ke expect */
+}
+.nav-name {
+    transform: translateY(150%);
+    opacity: 0;
+    transition: 600ms;
+}
+.nav-active .nav-name {
+    opacity: 1;
+    transform: translateY(0%);
+}
